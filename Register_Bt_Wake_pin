@@ -1,0 +1,11 @@
+#!/bin/bash
+#NOTE: This is for Allwinner A20 with BT_WAKE on gpio238 and WAKE_host on gpio239
+#configuration to get pin BT_WAKE pin to register, be gpio_out and turned on
+
+echo "239"  > /sys/class/gpio/export
+echo "in"  > /sys/class/gpio/gpio239/direction  
+echo "rising"  > /sys/class/gpio/gpio239/edge
+
+echo "238" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio238/direction
+echo "1" > /sys/class/gpio/gpio238/value
