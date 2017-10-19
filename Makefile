@@ -1,3 +1,6 @@
+//cross-compile this way-----
+//make CC=arm-linux-gnueabihf-gcc
+
 CC ?=
 PREFIX ?=
 
