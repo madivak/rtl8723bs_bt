@@ -1,0 +1,16 @@
+#!/bin/bash
+#launch Bluetooth driver
+
+rtk_hciattach -n -b -s 115200 /dev/ttyS2 rtk_h5 > hciattach.txt 2>&1 &
+
+/bin/sleep 5		#allow hci0 interface to initialise
+
+hciconfig               #show if hci inteface is up
+
+hciconfig hci0 up       #bring up the hci inteface
+
+hciconfig -a            #show if hci inteface is up
+
+hciconfig hci0 piscan   #Make my device discoverable
+
+hcitool scan            #scan available BT signals
