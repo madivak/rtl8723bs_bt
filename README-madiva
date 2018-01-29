@@ -1,26 +1,9 @@
 Initialise everthing Bluetooth related
-############################################################
-<
-rtk_hciattach -n -b -s 115200 /dev/ttyS2 rtk_h5 > hciattach.txt 2>&1 &
-
-/bin/sleep 5            #allow hci0 interface to initialise
-
-hciconfig               #show if hci inteface is up
-
-hciconfig hci0 up       #bring up the hci inteface
-
-hciconfig -a            #show if hci inteface is up
-
-hciconfig hci0 piscan   #Make my device discoverable
-
-hcitool scan            #scan available BT signals
-
->
-############################################################
+Check script *** BT-Initialize interface.sh**** execute it when system initializes
 
 To see properties of your target device
-#sdptool browse 74:04:2B:4E:4D:31(TARGET)
+#sdptool browse <TARGET DEVICE ID>(TARGET)
 
 connecting to a bluetooth device cause Bluetoothctl connects & disconnects
-#rfcomm connect hci0(HOST) 74:04:2B:4E:4D:31(TARGET) 2(CHANNEL)
+#rfcomm connect hci0(HOST) <TARGET DEVICE ID>(TARGET) 2(CHANNEL)
 
